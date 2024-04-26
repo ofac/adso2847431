@@ -1,4 +1,4 @@
-# ==ADSO 2847431==
+# ADSO 2847431
 ## Análisis y Desarrollo de Software
 ### Centro de Procesos Industriales y Construcción
 
