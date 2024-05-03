@@ -75,6 +75,25 @@ body {
     align-items: center;
     min-height: 100vh;
 }
+nav {
+    background-color: var(--color-pri);
+    border-radius: 4px;
+    padding: 8px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    transition: all 0.4s ease-in;
+    a:is(:link, :visited) {
+        svg {
+            height: 32px;
+            width: 32px;
+        }
+    }
+}
+nav:is(:hover) {
+    background-color: #fffd;
+            transform: scale(1.02) translateY(-2px);
+}
 main {
     display: flex;
     flex-direction: column;
@@ -141,4 +160,25 @@ body.mmenu {
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+}
+/* - - - - - - - - - - - - - - - - */
+/* 01 R E S P O N S I V E   D E S I G N */
+/* - - - - - - - - - - - - - - - - */
+body.rdesign {
+    background-color: #311010;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg %3E%3Ccircle fill='%23311010' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%234c191b' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%236a2325' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%23882d2e' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%23a83738' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23C94241' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    header {
+        h1 {
+            font-size: 3rem;
+        }
+    }
+    menu {
+        a:is(:link, :visited) {
+            color: #311010;
+        }
+    }
 }
