@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hollow Knight</title>
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main>
+        <!-- Navbar -->
+        <header>
+            <img src="images/logo.png" alt="Isologo">
+            <nav>
+                <a href="#home">
+                    Home
+                    <img src="images/border-bottom.png" alt="Border">
+                </a>
+                <a href="#characters">
+                    Characters
+                    <img src="images/border-bottom.png" alt="Border">
+                </a>
+                <a href="#history">
+                    History
+                    <img src="images/border-bottom.png" alt="Border">
+                </a>
+                <a href="#charms">
+                    Charms
+                    <img src="images/border-bottom.png" alt="Border">
+                </a>
+            </nav>
+        </header>
+        <!-- Slider -->
+         <section class="slider owl-carousel owl-theme">
+            <img src="images/slider01.png" alt="Slider01">
+            <img src="images/slider01.png" alt="Slider02">
+            <img src="images/slider01.png" alt="Slider03">
+         </section>
+    </main>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                stagePadding: 0,
+                items: 1,
+                loop: true,
+                nav: true
+            })
+        }) 
+    </script>
+
+</body>
+</html>
