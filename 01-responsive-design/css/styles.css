@@ -28,7 +28,7 @@ body {
         header {
             background-color: var(--color1);
             position: fixed;
-            z-index: 2;
+            z-index: 3;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -39,6 +39,36 @@ body {
             img {
                 transition: transform 0.4s ease-in;
                 width: 180px;
+            }
+            svg.btn-burger {
+                display: none;
+                cursor: pointer;
+                transition: transform 400ms;
+                user-select: none;
+                position: relative;
+                .line {
+                    fill:none;
+                    transition: stroke-dasharray 400ms, 
+                                stroke-dashoffset 400ms;
+                    stroke: #fff;
+                    stroke-width: 4;
+                    stroke-linecap: round;
+                }
+                .top {
+                  stroke-dasharray: 40 121;
+                }
+                .bottom {
+                  stroke-dasharray: 40 121;
+                }
+              }
+              svg.btn-burger.active {
+                transform: rotate(45deg);
+                .top {
+                  stroke-dashoffset: -68px;
+                }
+                .bottom {
+                  stroke-dashoffset: -68px;
+                }
             }
             nav {
                 display: flex;
@@ -61,6 +91,41 @@ body {
                     transform: translateY(3px);
                 }
             }
+        }
+        /* Menu Burger */
+        nav.menu-burger {
+            background-color: var(--color1);
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-block: 1rem;
+            transition: all 0.4s ease-in;
+            top: -200px;
+            gap: 1rem;
+            z-index: 2;
+            width: 100%;
+            a:is(:link, :visited) {
+                color: var(--color4);
+                font-family: var(--font-heading);
+                text-decoration: none;
+                font-size: 24px;
+                display: flex;
+                flex-direction: column;
+                transition: transform 0.2s ease-in;
+                align-items: center;
+                width: 178px;
+            }
+            a:is(:hover) {
+                transform: scale(1.1);
+            }
+            a:is(:hover) img {
+                transform: translateY(3px);
+            }
+        }
+        nav.menu-burger.active {
+            top: 80px;
         }
         /* Owl nav*/
         div.owl-nav {
@@ -302,6 +367,30 @@ body {
             p {
                 font-family: var(--font-body);
                 padding-bottom: 1rem;
+            }
+        }
+    }
+}
+/* - - - - - - - - - - - - - - - - */
+/* B R E A K   P O I N T S */
+/* - - - - - - - - - - - - - - - - */
+@media (max-width: 960px) {
+    body main {
+        header {
+            svg.btn-burger {
+                display: block;
+            }
+            nav {
+                display: none;
+            }
+        }
+    }
+}
+@media (max-width: 600px) {
+    body main {
+        section {
+            h2 {
+                margin-inline: auto !important;
             }
         }
     }
