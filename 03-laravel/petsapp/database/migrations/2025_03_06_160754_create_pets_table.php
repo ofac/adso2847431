@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('breed');
             $table->string('location');
             $table->text('description');
+            $table->boolean('status')->defaul(0);
             $table->timestamps();
         });
     }

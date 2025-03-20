@@ -7,6 +7,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// List All Users (Factory Challenge)
+Route::get('show/users', function() {
+    $users = App\Models\User::all();
+    //dd($users->toArray());
+    return view('users-factory')->with('users', $users);
+});
+
 
 
 Route::get('/dashboard', function () {
