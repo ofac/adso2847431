@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User as User;
 
 Route::get('/', function () {
     return view('welcome');
@@ -9,11 +10,59 @@ Route::get('/', function () {
 
 // List All Users (Factory Challenge)
 Route::get('show/users', function() {
-    $users = App\Models\User::all();
+    $users = User::all();
     //dd($users->toArray());
     return view('users-factory')->with('users', $users);
 });
 
+Route::get('hello', function() {
+    //echo "Hello from Laravel";
+    return "<h1>Hello Laravel ❤️</h1>";
+})->name('hello');
+
+Route::get('show/pets', function() {
+    $pets = App\Models\Pet::all();
+    //var_dump($pets->toArray());
+    dd($pets->toArray());
+});
+
+Route::get('/challenge/users', function() {
+    $users = User::limit(20)->get();
+    //dd($users->toArray());
+    $code = "<table style='border-collapse: collapse; margin: 2rem auto; font-family: Arial'>
+                <tr>
+                    <th style='background: gray; color: white; padding: 0.4rem'>Id</th>
+                    <th style='background: gray; color: white; padding: 0.4rem'>Fullname</th>
+                    <th style='background: gray; color: white; padding: 0.4rem'>Age</th>
+                    <th style='background: gray; color: white; padding: 0.4rem'>Created At</th>
+                </tr>";
+    foreach($users as $user) {
+        $code .= ($user->id%2 == 0) ? "<tr style='background: #ddd'>" : "<tr>";
+        $code .=    "<td style='border: 1px solid gray; padding: 0.4rem'>".$user->id."</td>";
+        $code .=    "<td style='border: 1px solid gray; padding: 0.4rem'>".$user->fullname."</td>";
+        $code .=    "<td style='border: 1px solid gray; padding: 0.4rem'>".Carbon\Carbon::parse($user->birthdate)->age." years old</td>";
+        $code .=    "<td style='border: 1px solid gray; padding: 0.4rem'>".$user->created_at->diffForHumans()."</td>";
+        $code .= "</tr>";
+    }
+    return $code . "</table>";
+});
+
+
+Route::get('view/blade', function() {
+    $title = "Examples Blade";
+    $pets  = App\Models\Pet::whereIn('kind', ['dog', 'cat'])->get();
+
+    return view('example-view')
+         ->with('title', $title)
+         ->with('pets', $pets);
+});
+
+
+Route::get('show/pet/{id}', function() {
+    $pet = App\Models\Pet::find(request()->id);
+    //dd($pet->toArray());
+    return view('show-pet')->with('pet', $pet);
+});
 
 
 Route::get('/dashboard', function () {
