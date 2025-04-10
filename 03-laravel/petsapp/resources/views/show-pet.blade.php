@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Show Pet</title>
-    <style>
-        p {
-            width: fit-content
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <h1 class="text-4xl mx-auto my-10 border-b w-[fit-content]">Show Pet</h1>
@@ -56,10 +52,6 @@
           </div>
         </div>
       </div>
-
-    
-
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </body>
 </html>
