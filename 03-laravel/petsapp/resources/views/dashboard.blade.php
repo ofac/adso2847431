@@ -3,7 +3,7 @@
 
 @section('content')
 <!-- Authentication -->
-<form method="POST" action="{{ route('logout') }}">
+<form method="POST" action="{{ route('logout') }}" class="text-white">
     @csrf
     <a href="{{ route('logout') }}"
             onclick="event.preventDefault();
