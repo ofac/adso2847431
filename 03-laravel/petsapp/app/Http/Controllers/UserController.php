@@ -14,7 +14,8 @@ class UserController extends Controller
     {
         //$users = User::all();
         $users = User::paginate(10);
-        dd($users->toArray());
+        //$users = User::simplePaginate(10);
+        //dd($users->toArray()); //Dump & Die
         return view('users.index')->with('users', $users);
     }
 
@@ -23,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**

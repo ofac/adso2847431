@@ -32,7 +32,7 @@
         <ul class="flex items-center gap-2">
             <li>
                 <div class="avatar">
-                    <div class="mask mask-squircle w-8">
+                    <div class="mask mask-squircle w-12">
                         <img src="{{ asset('images/'.Auth::user()->photo) }}" />
                     </div>
                 </div> 
