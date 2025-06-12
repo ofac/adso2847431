@@ -59,7 +59,7 @@
         </td>
         <td class="md:table-cell hidden">{{ $user->email }}</td>
         <td>
-          <a class="btn btn-outline btn-square btn-neutral btn-xs">
+          <a class="btn btn-outline btn-square btn-neutral btn-xs" href="{{ url('users/'.$user->id) }}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
             </svg>
@@ -91,5 +91,26 @@
 </div>
 
 {{ $users->links('layouts.paginator') }}
+
+<dialog id="message" class="modal">
+    <div class="modal-box">
+        <form method="dialog">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        </form>
+        <h3 class="text-lg font-bold">Congratulations!</h3>
+        <p id="text-message" class="py-4">Lorem ipsum dolor</p>
+    </div>
+</dialog>
   
+@endsection
+
+@section('js')
+<script>
+  const message     = document.querySelector('#message')
+  const textMessage = document.querySelector('#text-message')
+  @if(session('message'))
+    textMessage.textContent = "{{ session('message') }}"
+    message.showModal()
+  @endif
+</script>
 @endsection

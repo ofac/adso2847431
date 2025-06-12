@@ -54,7 +54,6 @@
                 <a class="underline mt-2 text-sm text-cyan-800 hover:text-cyan-900 rounded-md focus:outline-none" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
-
         </fieldset>
     </form>
 @endsection
