@@ -25,4 +25,11 @@ class Pet extends Model
     public function adoption() {
         return $this->hasOne(Adoption::class);
     }
+
+    // Scope: Search by name
+    public function scopeNames($users, $q) {
+        if(trim($q)) {
+            $users->where('name', 'LIKE', "%$q%");
+        }
+    }
 }

@@ -1,4 +1,4 @@
-@foreach ($users as $user)
+@forelse ($users as $user)
     <tr class="hover:bg-base-300">
     <td>
         <div class="flex items-center gap-3">
@@ -41,4 +41,12 @@
         </form>
     </td>
     </tr>
-    @endforeach
+    @empty
+    <tr>
+        <th colspan="4" class="text-center font-bold">No users found!</th>
+    </tr>
+    @endforelse
+
+        
+    
+        

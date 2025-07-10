@@ -3,12 +3,14 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User as User;
+use App\Models\Pet as pet;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\UserController;
-//use App\Http\Controllers\PetController;
+use App\Http\Controllers\PetController;
 //use App\Http\Controllers\AdoptionController;
 
 Route::get('/', function () {
@@ -92,11 +94,13 @@ Route::middleware('auth')->group(function () {
 
     Route::resources([
         'users'     => UserController::class,
-        //'pets'      => PetController::class,
+        'pets'      => PetController::class,
         //'adoptions' => AdoptionController::class,
     ]);
 
     Route::post('users/search', [UserController::class, 'search']);
+    Route::post('pets/search', [PetController::class, 'search']);
+
     
 });
 
