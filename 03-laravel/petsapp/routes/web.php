@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PetController;
-//use App\Http\Controllers\AdoptionController;
+use App\Http\Controllers\AdoptionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -94,9 +94,9 @@ Route::middleware('auth')->group(function () {
 
     Route::group(['middleware' => 'admin'], function() {
         Route::resources([
-            'users'   => UserController::class,
-            'pets'    => PetController::class,
-            //'adoptions' => AdoptionController::class,
+            'users'     => UserController::class,
+            'pets'      => PetController::class,
+            'adoptions' => AdoptionController::class,
         ]);
     });
 
