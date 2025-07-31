@@ -80,6 +80,12 @@ class AdoptionController extends Controller
         //
     }
 
+    // Search by Scope
+    public function search(Request $request) {
+        $adoptions = Adoption::names($request->q)->paginate(10);
+        return view('adoptions.search')->with('adoptions', $adoptions);
+    }
+
     public function myadoptions() 
     {
         $adps = Adoption::where('user_id', Auth::user()->id)->get();

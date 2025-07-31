@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-03-2025 a las 16:25:35
+-- Tiempo de generación: 31-07-2025 a las 18:11:23
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -35,6 +35,15 @@ CREATE TABLE `adoptions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `adoptions`
+--
+
+INSERT INTO `adoptions` (`id`, `user_id`, `pet_id`, `created_at`, `updated_at`) VALUES
+(1, 2, 3, '2025-03-20 20:57:44', '2025-03-20 20:57:44'),
+(2, 2, 4, '2025-03-20 21:01:21', '2025-03-20 21:01:21'),
+(3, 3, 2, '2025-07-31 15:43:01', '2025-07-31 15:43:01');
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +55,22 @@ CREATE TABLE `cache` (
   `value` mediumtext NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `cache`
+--
+
+INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
+('laravel_cache_asdasdd@sfdsef.com|127.0.0.1', 'i:1;', 1747315090),
+('laravel_cache_asdasdd@sfdsef.com|127.0.0.1:timer', 'i:1747315090;', 1747315090),
+('laravel_cache_asdasds@adfsad.com|127.0.0.1', 'i:1;', 1747322219),
+('laravel_cache_asdasds@adfsad.com|127.0.0.1:timer', 'i:1747322219;', 1747322219),
+('laravel_cache_asfddf!@adasd.com|127.0.0.1', 'i:1;', 1747324200),
+('laravel_cache_asfddf!@adasd.com|127.0.0.1:timer', 'i:1747324200;', 1747324200),
+('laravel_cache_jeremias@gmail.com|127.0.0.1', 'i:1;', 1743078378),
+('laravel_cache_jeremias@gmail.com|127.0.0.1:timer', 'i:1743078378;', 1743078378),
+('laravel_cache_jwick@gmail.com|127.0.0.1', 'i:1;', 1747916912),
+('laravel_cache_jwick@gmail.com|127.0.0.1:timer', 'i:1747916912;', 1747916912);
 
 -- --------------------------------------------------------
 
@@ -171,14 +196,14 @@ CREATE TABLE `pets` (
 --
 
 INSERT INTO `pets` (`id`, `name`, `image`, `kind`, `weight`, `age`, `breed`, `location`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Firulais', 'no-image.png', 'Dog', 16, 24, 'Shiba Inu', 'Kioto', 'Agile Japanese breed known for its fox-like appearance, spirited personality, and thick double coat', 0, '2025-03-13 21:54:09', NULL),
-(2, 'Michi', 'no-image.png', 'Cat', 4, 18, 'Siamés', 'Osaka', 'Sleek, vocal breed with striking blue eyes, a short coat, and distinctive color points on ears, face, paws, and tail.', 0, '2025-03-13 21:54:09', NULL),
-(3, 'Killer', 'no-image.png', 'Dog', 5, 48, 'French Poodle', 'Tokio', 'Intelligent, elegant breed known for its curly coat, playful nature, and versatility in various dog sports', 0, '2025-03-13 21:54:09', NULL),
-(4, 'monahan', 'no-image.png', 'Dog', 36, 99, 'Silver', 'North Penelope', 'Voluptas impedit consequatur qui deserunt illum aut dolores illum eveniet sunt sint natus.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
+(1, 'Firulais', '1752158845.png', 'Dog', 16, 24, 'Shiba Inu', 'Kioto', 'Agile Japanese breed known for its fox-like appearance, spirited personality, and thick double coat', 0, '2025-03-13 21:54:09', '2025-07-10 19:47:25'),
+(2, 'Michi', '1752159550.png', 'Cat', 4, 18, 'Siamés', 'Osaka', 'Sleek, vocal breed with striking blue eyes, a short coat, and distinctive color points on ears, face, paws, and tail.', 1, '2025-03-13 21:54:09', '2025-07-10 19:59:10'),
+(3, 'Killer', '1752159620.png', 'Dog', 5, 48, 'French Poodle', 'Tokio', 'Intelligent, elegant breed known for its curly coat, playful nature, and versatility in various dog sports', 1, '2025-03-13 21:54:09', '2025-07-10 20:00:20'),
+(4, 'monahan', '1753976494.png', 'Dog', 36, 99, 'Silver', 'North Penelope', 'Voluptas impedit consequatur qui deserunt illum aut dolores illum eveniet sunt sint natus.', 1, '2025-03-13 21:54:09', '2025-07-31 20:41:34'),
 (5, 'gleichner', 'no-image.png', 'Dog', 20, 86, 'Gainsboro', 'Murazikmouth', 'Reprehenderit doloribus non nesciunt sint omnis est nulla laborum.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
 (6, 'senger', 'no-image.png', 'Fish', 79, 50, 'LightGray', 'Jenkinshaven', 'Itaque praesentium omnis nemo repellendus nemo explicabo corrupti.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
 (7, 'stroman', 'no-image.png', 'Bird', 46, 56, 'HotPink', 'Port Kobefort', 'Optio sint fugit harum ad officiis nulla dolor exercitationem corporis velit.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
-(8, 'mckenzie', 'no-image.png', 'Bird', 22, 21, 'MediumVioletRed', 'Skilesborough', 'At at saepe laborum nisi velit aut magni eum id et.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
+(8, 'pochoclo', 'no-image.png', 'Bird', 22, 21, 'MediumVioletRed', 'Skilesborough', 'At at saepe laborum nisi velit aut magni eum id et.', 0, '2025-03-13 21:54:09', '2025-07-10 19:39:57'),
 (9, 'beatty', 'no-image.png', 'Mouse', 53, 59, 'Aquamarine', 'D\'Amoreville', 'Expedita odio earum odio saepe accusamus in quasi incidunt ipsam neque.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
 (10, 'keebler', 'no-image.png', 'Cat', 49, 86, 'DarkCyan', 'Carmeloland', 'Voluptatem harum repudiandae non qui nisi veritatis voluptas voluptas quia consectetur ea pariatur aspernatur.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
 (11, 'wiegand', 'no-image.png', 'Cat', 24, 88, 'WhiteSmoke', 'Port Rossie', 'Ipsum dolorem ut quae et quo ut delectus sed sed.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
@@ -273,7 +298,8 @@ INSERT INTO `pets` (`id`, `name`, `image`, `kind`, `weight`, `age`, `breed`, `lo
 (100, 'tremblay', 'no-image.png', 'Dog', 9, 87, 'Navy', 'Dachmouth', 'Est deleniti quia ipsam et ea magnam porro aliquam.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
 (101, 'hessel', 'no-image.png', 'Mouse', 54, 40, 'MediumSeaGreen', 'South Gia', 'Fugiat perferendis quibusdam quasi voluptatem dolores pariatur dignissimos est est commodi nihil.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
 (102, 'spencer', 'no-image.png', 'Fish', 22, 33, 'MediumSpringGreen', 'Boydmouth', 'Ad fuga tenetur ducimus inventore reprehenderit modi est praesentium voluptates consequatur in.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
-(103, 'rowe', 'no-image.png', 'Bird', 53, 16, 'Ivory', 'West Leta', 'Voluptatem doloribus enim voluptas omnis omnis est dolorem expedita unde sunt ipsam repellendus.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09');
+(103, 'rowe', 'no-image.png', 'Bird', 53, 16, 'Ivory', 'West Leta', 'Voluptatem doloribus enim voluptas omnis omnis est dolorem expedita unde sunt ipsam repellendus.', 0, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
+(104, 'Crazy', '1752156088.png', 'Dog', 40, 12, 'Rottweiler', 'Lima', 'Crazy dog is a nice pet to share time...', 0, '2025-07-10 19:01:28', '2025-07-10 19:01:28');
 
 -- --------------------------------------------------------
 
@@ -295,7 +321,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('XiNGCH2jHRktqIXy38TRej9e3j2T9xDxvzCz8nH5', NULL, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3.1 Safari/605.1.15', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSVFOVlRSUlV6TGZ4Z3pta1lkcjByTHYzTnU5U3BMZDBISTY3TnZNVSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zaG93L3VzZXJzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1742482859);
+('1vwVUYd24IDSq4RvU38Yp97sIHOP0c7CqGr6FRcO', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Safari/605.1.15', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSkNhenRTMVhtSFlSNVA4UWpNckNzRU1FOVBCZ0lqc25UandBMTJ5cyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG9wdGlvbnMiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1753978189);
 
 -- --------------------------------------------------------
 
@@ -325,10 +351,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `document`, `fullname`, `gender`, `birthdate`, `photo`, `phone`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 75000001, 'John Wick', 'Male', '1984-10-12', 'no-photo.png', '3205673456', 'jwick@mail.com', NULL, '$2y$12$OHfE9hamcbnxfdVnpxbE1uGOY3X61BsASJSkufp0mj9.APo7ShR26', 'Admin', NULL, '2025-03-13 21:54:08', '2025-03-13 21:54:08'),
-(2, 75000002, 'Lara Croft', 'Female', '1994-08-05', 'no-photo.png', '3209890976', 'lara@mail.com', NULL, '$2y$12$FO9eFWk0V/3Ybpz/bcfz4e7vS.fSIXdjY94XeU9SgLQq0WB6wShRC', 'Customer', NULL, '2025-03-13 21:54:09', '2025-03-13 21:54:09'),
+(1, 75000001, 'John Wick', 'Male', '1984-10-12', 'johnw.png', '3205673456', 'jwick@mail.com', NULL, '$2y$12$OHfE9hamcbnxfdVnpxbE1uGOY3X61BsASJSkufp0mj9.APo7ShR26', 'Admin', NULL, '2025-03-13 21:54:08', '2025-03-13 21:54:08'),
+(2, 75000002, 'Lara Croft', 'Female', '1994-08-05', '1751549893.png', '3209890976', 'laracroft@mail.com', NULL, '$2y$12$FO9eFWk0V/3Ybpz/bcfz4e7vS.fSIXdjY94XeU9SgLQq0WB6wShRC', 'Customer', NULL, '2025-03-13 21:54:09', '2025-07-03 18:38:13'),
 (3, 75148497, 'Otilia Reichert', 'Female', '1983-06-04', '75148497.png', '3206557487', 'ulynch@example.net', '2025-03-13 21:54:12', '$2y$12$25oW9yy08d4TNVVD7u/k6e1iUYMmGWpisYBmWDirCUJXLEKTo80hO', 'Customer', '354xbmMa4A', '2025-03-13 21:55:14', '2025-03-13 21:55:14'),
-(4, 75187441, 'Christophe Weber', 'Male', '1999-06-16', '75187441.png', '3205118426', 'gibson.bailey@example.org', '2025-03-13 21:54:14', '$2y$12$25oW9yy08d4TNVVD7u/k6e1iUYMmGWpisYBmWDirCUJXLEKTo80hO', 'Customer', 'kCJ106tmCL', '2025-03-13 21:55:14', '2025-03-13 21:55:14'),
+(4, 75187441, 'Christophe Weber', 'Male', '1999-06-16', '75187441.png', '3205118426', 'gibson.bailey@example.org', '2025-03-13 21:54:14', '$2y$12$25oW9yy08d4TNVVD7u/k6e1iUYMmGWpisYBmWDirCUJXLEKTo80hO', 'Customer', 'Y0AvSq9jcSoapNdYhsGIWjIQAtUp2BSxx5vkwOZzBzPVmYXwobY8boMI30t6', '2025-03-13 21:55:14', '2025-03-13 21:55:14'),
 (5, 75680446, 'Hildegard Kutch', 'Female', '1989-06-05', '75680446.png', '3205988298', 'dhagenes@example.net', '2025-03-13 21:54:17', '$2y$12$25oW9yy08d4TNVVD7u/k6e1iUYMmGWpisYBmWDirCUJXLEKTo80hO', 'Customer', 'isuak0QcSU', '2025-03-13 21:55:14', '2025-03-13 21:55:14'),
 (6, 75277304, 'Camden Rodriguez', 'Male', '1998-05-24', '75277304.png', '3208751628', 'vpfeffer@example.com', '2025-03-13 21:54:20', '$2y$12$25oW9yy08d4TNVVD7u/k6e1iUYMmGWpisYBmWDirCUJXLEKTo80hO', 'Customer', 'b8GToLgUah', '2025-03-13 21:55:14', '2025-03-13 21:55:14'),
 (7, 75901085, 'Alison Champlin', 'Female', '1981-07-06', '75901085.png', '3209052895', 'schamberger.leora@example.org', '2025-03-13 21:54:24', '$2y$12$25oW9yy08d4TNVVD7u/k6e1iUYMmGWpisYBmWDirCUJXLEKTo80hO', 'Customer', 'VGJOBlmDAn', '2025-03-13 21:55:14', '2025-03-13 21:55:14'),
@@ -351,7 +377,9 @@ INSERT INTO `users` (`id`, `document`, `fullname`, `gender`, `birthdate`, `photo
 (24, 75830806, 'Jovanny Dicki', 'Male', '1982-10-11', '75830806.png', '3207189461', 'hauck.earnest@example.net', '2025-03-13 21:55:03', '$2y$12$25oW9yy08d4TNVVD7u/k6e1iUYMmGWpisYBmWDirCUJXLEKTo80hO', 'Customer', 'TsjX4ht9my', '2025-03-13 21:55:14', '2025-03-13 21:55:14'),
 (25, 75461705, 'Shakira Ratke', 'Female', '1982-11-27', '75461705.png', '3200588943', 'zackery.macejkovic@example.com', '2025-03-13 21:55:05', '$2y$12$25oW9yy08d4TNVVD7u/k6e1iUYMmGWpisYBmWDirCUJXLEKTo80hO', 'Customer', 'MMhfFgFDob', '2025-03-13 21:55:14', '2025-03-13 21:55:14'),
 (26, 75967834, 'Kailey McGlynn', 'Female', '1997-06-26', '75967834.png', '3209386253', 'boyle.colby@example.org', '2025-03-13 21:55:09', '$2y$12$25oW9yy08d4TNVVD7u/k6e1iUYMmGWpisYBmWDirCUJXLEKTo80hO', 'Customer', 'NAgFkAnWfb', '2025-03-13 21:55:14', '2025-03-13 21:55:14'),
-(27, 75353257, 'Monica Strosin', 'Female', '1976-11-23', '75353257.png', '3202214038', 'demarco08@example.net', '2025-03-13 21:55:14', '$2y$12$25oW9yy08d4TNVVD7u/k6e1iUYMmGWpisYBmWDirCUJXLEKTo80hO', 'Customer', 'wyjOTSZrKk', '2025-03-13 21:55:14', '2025-03-13 21:55:14');
+(27, 75353257, 'Monica Strosin', 'Female', '1976-11-23', '75353257.png', '3202214038', 'demarco08@example.net', '2025-03-13 21:55:14', '$2y$12$25oW9yy08d4TNVVD7u/k6e1iUYMmGWpisYBmWDirCUJXLEKTo80hO', 'Customer', 'wyjOTSZrKk', '2025-03-13 21:55:14', '2025-03-13 21:55:14'),
+(28, 78123123, 'Carmine Rodolf', 'Female', '2025-05-15', 'no-photo.png', '3210000023', 'carmine@mail.com', NULL, '$2y$12$ZHgETfUGGSqJT1iSIyC/1OsjtSYDEsoNI88Z9.K8exPCsV3cSiMbq', 'Customer', NULL, '2025-05-15 21:38:21', '2025-05-15 21:38:21'),
+(29, 851231234, 'Dayro Moreno', 'Male', '1985-06-12', '1751551531.png', '3219879876', 'dayro@mail.com', NULL, '$2y$12$ArlcLOiWeLI1jkWqybuCGO8niMnuwzCgg4fsxJnIfeAFgLIAQ051y', 'Customer', NULL, '2025-06-12 20:43:09', '2025-07-03 19:05:31');
 
 --
 -- Índices para tablas volcadas
@@ -439,7 +467,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `adoptions`
 --
 ALTER TABLE `adoptions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -463,13 +491,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Restricciones para tablas volcadas

@@ -103,6 +103,7 @@ Route::middleware('auth')->group(function () {
     // Search
     Route::post('users/search', [UserController::class, 'search']);
     Route::post('pets/search', [PetController::class, 'search']);
+    Route::post('adoptions/search', [AdoptionController::class, 'search']);
 
     // Export
     Route::get('export/users/excel', [UserController::class, 'excel']);

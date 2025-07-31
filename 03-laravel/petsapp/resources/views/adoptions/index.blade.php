@@ -15,7 +15,7 @@
   <li><input class="py-2" id="qsearch" name="qsearch" type="search" placeholder="Search..."></li>
 </ul>
 
-<div class="overflow-x-auto my-2 rounded-box bg-base-100">
+<div class="overflow-x-auto my-2 mx-4 rounded-box bg-base-100">
   <table class="table table-zebra">
     <tbody id="list">
       @foreach ($adops as $adop)
@@ -46,49 +46,11 @@
 </div>
 
 {{ $adops->links('layouts.paginator') }}
-
-<dialog id="message" class="modal">
-    <div class="modal-box">
-        <form method="dialog">
-          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-        </form>
-        <h3 class="text-lg font-bold">Congratulations!</h3>
-        <p id="text-message" class="py-4">Lorem ipsum dolor</p>
-    </div>
-</dialog>
-
   
 @endsection
 
 @section('js')
 <script>
-  // Message
-  const message     = document.querySelector('#message')
-  const textMessage = document.querySelector('#text-message')
-  @if(session('message'))
-    textMessage.textContent = "{{ session('message') }}"
-    message.showModal()
-  @endif
-
-  // Delete
-  const btnDelete   = document.querySelectorAll('.btn-delete')
-  const confirm     = document.querySelector('#confirm')
-  const textConfirm = document.querySelector('#text-confirm')
-  const btnAccept   = document.querySelector('.btn-accept')
-  let frmDelete     = undefined
-
-  btnDelete.forEach(element => {
-    element.addEventListener('click', function() {
-      const fullName  = this.dataset.fullname
-      frmDelete = this.nextElementSibling
-      textConfirm.textContent = `You want to delete: ${fullName}`
-      confirm.showModal()
-    })
-  })
-
-  btnAccept.addEventListener('click', function() {
-    frmDelete.submit()
-  })
 
   // Search
    const qSearch = document.querySelector('#qsearch')
@@ -99,7 +61,7 @@
       let query = this.value
       let token = document.querySelector('input[name=_token]')
 
-      fetch('pets/search', {
+      fetch('adoptions/search', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -112,7 +74,7 @@
       }).then(response => response.text())
         .then(data => {
           list.innerHTML = `<tr>
-                              <td colspan="4">
+                              <td>
                                 <span class="loading loading-spinner loading-xl flex mx-auto"></span>
                               </td>
                             </tr>`
