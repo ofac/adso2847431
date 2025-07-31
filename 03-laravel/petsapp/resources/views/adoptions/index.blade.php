@@ -56,7 +56,16 @@
    const qSearch = document.querySelector('#qsearch')
    const list    = document.querySelector('#list')
 
-   qSearch.addEventListener('input', function(event) {
+   function debounce(func, wait) {
+    let timeout
+    return function() {
+      const context = this, args = arguments
+      clearTimeout(timeout)
+      timeout = setTimeout(() => func.apply(context, args), wait)
+    }
+  }
+
+   qSearch.addEventListener('input', debounce(function(event) {
       event.preventDefault()
       let query = this.value
       let token = document.querySelector('input[name=_token]')
@@ -80,9 +89,9 @@
                             </tr>`
           setTimeout(() => {
             list.innerHTML = data
-          }, 2000);
+          }, 500);
         })
-   })
+   }, 500))
   
 </script>
 @endsection
