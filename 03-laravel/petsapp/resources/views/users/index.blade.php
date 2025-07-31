@@ -11,18 +11,27 @@
     Users Module
 </h1>
 
-<ul class="menu gap-1 mb-8 menu-horizontal bg-base-200 rounded-box">
+<ul class="menu gap-1 mb-8 menu-horizontal flex-col md:flex-row bg-base-200 rounded-box">
   <li>
-    <a href="{{ url('users/create') }}" class="btn btn-sm sm:btn-md btn-success btn-outline">
+    <a href="{{ url('users/create') }}" class="btn btn-sm btn-success btn-outline">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
         </svg>
         Add User
     </a>
 </li>
-  <li><a class="btn btn-sm sm:btn-md btn-neutral btn-outline">Export PDF</a></li>
-  <li><a class="btn btn-sm sm:btn-md btn-neutral btn-outline">Export Excel</a></li>
-  <li><input class="py-2" id="qsearch" name="qsearch" type="search" placeholder="Search..."></li>
+  <li>
+    <form class="p-0" action="{{ url('import/users') }}" method="post" enctype="multipart/form-data">
+          @csrf
+          <input type="file" name="file" id="file" class="hidden" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+          <a href="javascript:;" class="btn-import w-[200px] md:w-[100px] btn btn-sm btn-neutral btn-outline">
+              Import Excel
+          </a>
+      </form>
+  </li>
+  <li><a class="btn btn-sm btn-neutral btn-outline" href="{{ url('export/users/pdf') }}">Export PDF</a></li>
+  <li><a class="btn btn-sm btn-neutral btn-outline" href="{{ url('export/users/excel') }}">Export Excel</a></li>
+  <li><input class="py-1" id="qsearch" name="qsearch" type="search" placeholder="Search..."></li>
 </ul>
 
 <div class="overflow-x-auto my-2 rounded-box bg-base-100">
@@ -153,6 +162,18 @@
 
   btnAccept.addEventListener('click', function() {
     frmDelete.submit()
+  })
+
+  // Import
+  const btnImport = document.querySelector('.btn-import')
+  const fileExcel = document.getElementById('file')
+
+  btnImport.addEventListener('click', function() {
+    fileExcel.click()
+  })
+
+  fileExcel.addEventListener('change', function() {
+    this.parentElement.submit()
   })
 
   // Search

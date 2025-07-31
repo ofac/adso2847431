@@ -17,7 +17,7 @@
     Pets Module
 </h1>
 
-<ul class="menu gap-1 mb-8 menu-horizontal bg-base-200 rounded-box">
+<ul class="menu gap-1 mb-8 flex-col sm:flex-row menu-horizontal bg-base-200 rounded-box">
   <li>
     <a href="{{ url('pets/create') }}" class="btn btn-sm sm:btn-md btn-success btn-outline">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

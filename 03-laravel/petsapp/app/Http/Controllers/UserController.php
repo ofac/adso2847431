@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UsersExport;
+use App\Imports\UsersImport;
 
 class UserController extends Controller
 {
@@ -137,8 +141,28 @@ class UserController extends Controller
         return redirect('users')->with('message', 'The user: '.$user->fullname.' was successfully deleted!');
     }
 
+    // Search by Scope
     public function search(Request $request) {
         $users = User::names($request->q)->paginate(10);
         return view('users.search')->with('users', $users);
+    }
+
+    // Export PDF
+    public function pdf() {
+        $users = User::all();
+        $pdf = PDF::loadView('users.pdf', compact('users'));
+        return $pdf->download('allusers.pdf');
+    }
+
+    // Export Excel
+    public function excel() {
+        return Excel::download(new UsersExport, 'allusers.xlsx');
+    }
+
+    //Import Excel
+     public function import(Request $request) {
+        $file = $request->file('file');
+        Excel::import(new UsersImport, $file);
+        return redirect()->back()->with('message', 'Users imported successful!');
     }
 }

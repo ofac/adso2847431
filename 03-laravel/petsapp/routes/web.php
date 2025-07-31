@@ -92,15 +92,24 @@ Route::get('/dashboard', function (Request $request) {
 
 Route::middleware('auth')->group(function () {
 
-    Route::resources([
-        'users'     => UserController::class,
-        'pets'      => PetController::class,
-        //'adoptions' => AdoptionController::class,
-    ]);
+    Route::group(['middleware' => 'admin'], function() {
+        Route::resources([
+            'users'   => UserController::class,
+            'pets'    => PetController::class,
+            //'adoptions' => AdoptionController::class,
+        ]);
+    });
 
+    // Search
     Route::post('users/search', [UserController::class, 'search']);
     Route::post('pets/search', [PetController::class, 'search']);
 
+    // Export
+    Route::get('export/users/excel', [UserController::class, 'excel']);
+    Route::get('export/users/pdf', [UserController::class, 'pdf']);
+
+    // Import
+    Route::post('import/users', [UserController::class, 'import']);
     
 });
 

@@ -38,7 +38,7 @@
                 </div> 
             </li>
             <li>
-                <span class="badge text-white border-cyan-800 bg-cyan-800">Admin: {{ Auth::user()->fullname }}</span>
+                <span class="badge text-white border-cyan-800 bg-cyan-800">{{ Auth::user()->role }}: {{ Auth::user()->fullname }}</span>
             </li>
             <li>
                 <details class="dropdown dropdown-end">
